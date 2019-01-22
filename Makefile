@@ -35,7 +35,7 @@ cu:
 	$(DC) run --rm app composer update
 
 open:
-	open http://$(HOST).test
+	open http://$(HOST).test:8000
 
 hosts:
 	sudo hostess add $(HOST).test 127.0.0.1

@@ -2,16 +2,21 @@ FROM php:7.3-fpm
 
 ENV DEBIAN_FRONTEND noninteractive
 
-
+# php
 RUN apt-get update \
     && apt-get install -yq libzip-dev zlib1g-dev libgmp-dev unzip \
     && docker-php-ext-configure zip --with-libzip
 
+# Horizonにpcntl。WebPush関連でgmpが必要。
 RUN docker-php-ext-install zip pdo_mysql bcmath pcntl gmp
 
 # composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
+
+# ホスト側と共有しないなら
+#RUN composer config -g repos.packagist composer https://packagist.kawax.biz/
+#RUN composer global require hirak/prestissimo
 
 
 # supervisor

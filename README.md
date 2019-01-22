@@ -44,7 +44,7 @@ docker-compose up -d
 make upd
 ```
 
-open http://my-project.test
+open http://my-project.test:8000
 
 ```
 make open
@@ -124,6 +124,11 @@ https://github.com/beyondcode/laravel-websockets
 
 ## メール
 Mailfogはない。Telescopeで十分なはず。
+
+# https
+これでhttpsにはできるけどこれで作られる`signed.crt`がキーチェインに追加できないので「保護された通信」にならない。
+https://github.com/SteveLTN/https-portal
+Homesteadではcrtを追加すれば保護されるのでService WorkerやWebPushも動く。
 
 ## その他
 MakefileやDockerfileはプロジェクト毎に必要なら修正する想定。

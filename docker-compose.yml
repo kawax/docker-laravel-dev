@@ -2,9 +2,9 @@ version: '3'
 
 services:
   nginx:
-    image: nginx
+    image: nginx:alpine
     ports:
-      - "80:80"
+      - '8000:80'
     volumes:
       - ./public:/var/www/public
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -84,3 +84,16 @@ services:
 #    links:
 #      - mysql
 #      - redis
+
+#  https-portal:
+#    image: steveltn/https-portal:1
+#    ports:
+#      - '443:443'
+#    links:
+#      - nginx
+#    environment:
+#      DOMAINS: 'docker-laravel-dev.test -> http://nginx:80'
+#      STAGE: 'local'
+#    volumes:
+#      - ./docker/nginx/ssl:/var/lib/https-portal/
+#    restart: always
