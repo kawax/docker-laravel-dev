@@ -132,7 +132,7 @@ Homesteadではcrtを追加すれば保護されるのでService WorkerやWebPus
 
 ## その他
 MakefileやDockerfileはプロジェクト毎に必要なら修正する想定。
-Docker imageは公式の`php:7.3-fpm`からなので修正しやすい。
+Docker imageは公式からなので修正しやすい。
 
 Makefileのインデントはタブ
 .editorconfig
