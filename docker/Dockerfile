@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # php
 RUN apt-get update \
     && apt-get install -yq libzip-dev zlib1g-dev libgmp-dev unzip \
-    && docker-php-ext-configure zip --with-libzip
+    && docker-php-ext-configure zip
 
 # Horizonにpcntl。WebPush関連でgmpが必要。
 RUN docker-php-ext-install zip pdo_mysql bcmath pcntl gmp
@@ -45,4 +45,3 @@ RUN apt-get -yq clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 WORKDIR /var/www
-
