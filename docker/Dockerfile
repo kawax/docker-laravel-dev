@@ -11,9 +11,7 @@ RUN docker-php-ext-install zip pdo_mysql bcmath pcntl gmp
 # composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# ホスト側と共有しないなら
-#RUN composer config -g repos.packagist composer https://packagist.kawax.biz/
-#RUN composer global require hirak/prestissimo --no-progress
+RUN composer self-update --2
 
 
 # supervisor
